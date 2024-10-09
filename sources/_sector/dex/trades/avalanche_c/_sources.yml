@@ -18,6 +18,10 @@ sources:
     tables:
       - name: FraxswapPair_evt_Swap
       - name: FraxswapFactory_evt_PairCreated
+  - name: trader_joe_v2_2_avalanche_c
+    tables:
+      - name: LBPair_evt_Swap
+      - name: LBFactory_evt_LBPairCreated
   - name: trader_joe_v2_1_avalanche_c
   - name: trader_joe_avalanche_c
   - name: balancer_v2_avalanche_c
@@ -95,3 +99,8 @@ sources:
   - name: odos_v2_avalanche_c
     tables:
       - name: OdosRouterV2_evt_Swap
+  - name: elk_finance_avalanche_c
+    tables:
+      - name: ElkFactory_evt_PairCreated
+      - name: ElkPair_evt_Swap
+

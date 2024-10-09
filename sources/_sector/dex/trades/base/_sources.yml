@@ -32,6 +32,10 @@ sources:
     tables:
       - name: pool_evt_Swap
       - name: factory_evt_PoolCreated
+  - name: maverick_v2_base
+    tables:
+      - name: V2Pool_evt_PoolSwap
+      - name: V2Factory_evt_PoolCreated
   - name: smardex_base
     tables:
       - name: SmardexPair_evt_Swap
@@ -44,6 +48,10 @@ sources:
     tables:
       - name: PancakePair_evt_Swap
       - name: PancakeFactory_evt_PairCreated
+  - name: baseswap_v3_base
+    tables:
+      - name: UniswapV3Pool_evt_Swap
+      - name: UniswapV3Factory_evt_PoolCreated  
   - name: scale_base
     tables:
       - name: Pair_evt_Swap
@@ -168,3 +176,13 @@ sources:
     tables:
       - name: UniswapV3Pool_evt_Swap
       - name: UniswapV3Factory_evt_PoolCreated
+  - name: clipper_base
+    tables:
+      - name: ClipperPackedVerifiedExchange_evt_Swapped
+  - name: swaap_v2_base
+    tables:
+      - name: Vault_evt_Swap
+  - name: xchange_base
+    tables:
+      - name: XchangePair_evt_Swap
+      - name: XchangeFactory_evt_PairCreated

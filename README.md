@@ -7,7 +7,7 @@ Welcome to [Spellbook](https://youtu.be/o7p0BNt7NHs). Cast a magical incantation
 
 - Have a question on how something works in Spellbook, or why we design spells in a particular way?
   - Please visit the [docs](docs/) directory to find various topics & ideally answers to any question about Spellbook
-- Spellbook has [introduced sub-projects](https://github.com/duneanalytics/spellbook/discussions/5238), with the intention to pilot a path forward for scaling the repo
+- Spellbook has [introduced sub-projects](#sub-projects), with the intention to build a path forward for scaling Spellbook
 - Are you building something new? **Please make sure to open a Draft PR**, so we minimize duplicated work, and other wizards can help you if you need
 - Don't know where to start? The docs below will guide you, but as a summary:
   - Want to make an incremental improvement to one of our spells? (add a new project, fix a bug you found), simply open a PR with your changes.
@@ -29,8 +29,14 @@ Welcome to [Spellbook](https://youtu.be/o7p0BNt7NHs). Cast a magical incantation
   - [Testing your Spell](#testing-your-spell)
   - [Connecting with other wizards](#connecting-with-other-wizards)
 - [Setting up your dev environment](#setting-up-your-local-dev-environment)
+  - [Prerequisites](#prerequisites)
+  - [Initial Installation](#initial-installation)
+  - [Coming back](#coming-back)
+  - [What did I just do?](#what-did-i-just-do)
 - [Using dbt to write spells](#how-to-use-dbt-to-create-spells)
-
+  - [Generating and serving documentation:](#generating-and-serving-documentation)
+  - [DBT Resources:](#dbt-resources)
+        
 ## Introduction
 
 Spellbook is Dune's interpretation layer, built for and by the community.
@@ -45,9 +51,27 @@ Spellbook has a lot of moving parts & specific design principles for contributin
 
 ## Sub-projects
 
-In order to prepare for scaling Spellbook, the repo has started to pilot sub-projects to break out complex DBT lineages a bit & keep focus areas clean. This will also help downstream orchestration to keep spells fresh in production. Please refer to initial [GH discussion](https://github.com/duneanalytics/spellbook/discussions/5238) for high-level info & continue the conversation there with the Dune team.
+In order to scale Spellbook, the repo has introduced sub-projects to break out complex DBT lineages a bit & keep focus areas clean. This will also help downstream orchestration to keep spells fresh in production. DBT sub-projects in Spellbook are simply multiple DBT projects within one repo. The current structure for projects:
+- `dbt_subprojects`
+  - `daily_spellbook`
+    - *note*: new spells will live here, unless otherwise directed by Dune team
+    - all "other" spells which don't feed into larger sector-wide spells, refreshed on a daily basis
+    - example: project specific, standalone spells
+  - `hourly_spellbook`
+    - "other" spells which have been promoted from daily to hourly, allowing for more frequent refreshes
+    - feed into sector-level spells, with potential to be promoted into it's own project
+    - required to fit latest spellbook best practices
+    - requires approval from Dune team to be hourly
+  - `dex`
+    - all spells which live in the `dex` or `dex_aggregator` schemas, including upstream spells to help build the final sector-level spells
+  - `nft`
+    - all spells which live in the `nft` schema, including upstream spells to help build the final sector-level spells
+  - `solana`
+    - solana specific spells, don't fit into EVM code structure as easily
+  - `tokens`
+    - token metadata, transfers, balances
 
-- First sub-project: erc20 token metadata, found [here](tokens)
+For further information on sub-projects, please visit [this discussion](https://github.com/duneanalytics/spellbook/discussions/6037) and ask any questions there.
 
 ## Ways to contribute to Spellbook
 
@@ -76,7 +100,7 @@ Please note: the test tables built in the CI pipeline will exist for ~24 hours. 
 
 ### Connecting with other wizards
 
-We use Discord to connect with our community. Head over to spellbook channel on [Dune's Discord](https://discord.gg/dunecom) for questions or to ask for help with a particular PR. We encourage you to learn by doing, and leverage our vibrant community to help you get going.
+We use Discord to connect with our community. Head over to spellbook channel on [Dune's Discord](https://discord.com/invite/ErrzwBz) for questions or to ask for help with a particular PR. We encourage you to learn by doing, and leverage our vibrant community to help you get going.
 
 ## Setting up your Local Dev Environment
 
@@ -98,6 +122,12 @@ Navigate to the spellbook repo within your CLI (Command line interface).
 ```console
 cd user\directory\github\spellbook
 # Change this to wherever spellbook is stored locally on your machine.
+```
+
+Within Spellbook repo, there are multiple dbt projects, located in the root directory. Navigate to the correct project, depending on your use case.
+
+```console
+cd ../spellbook/dbt_subprojects/<subproject_name>/
 ```
 
 Using the pipfile located in the spellbook repo, run the below install command to create a pipenv.
@@ -181,7 +211,6 @@ models:
       error_after: { count: 24, period: hour }
     tables:
       - name: traces
-        loaded_at_field: block_time
 ```
 
 See links to more docs on dbt below.
