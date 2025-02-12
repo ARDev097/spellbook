@@ -16,6 +16,8 @@ FROM
 (
     VALUES
     ('weth-weth','base','WETH',0x4200000000000000000000000000000000000006,18),
+    --ingesting flETH with price for weth momentarily while we find a better fix, should be a <1% delta
+    ('weth-weth','base','flETH',0x000000000D564D5be76f7f0d28fE52605afC7Cf8,18),
     ('axl-axelar','base','AXL',0x23ee2343b892b1bb63503a4fabc840e0e2c6810f,6),
     ('bald-bald','base','BALD',0x27d2decb4bfc9c76f0309b8e88dec3a601fe25a8,18),
     ('usdbc-usd-base-coin','base','USDbC',0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca,6),
@@ -181,6 +183,30 @@ FROM
     ('gochu-gochujang-coin', 'base', 'GOCHU',0x9aaae745cf2830fb8ddc6248b17436dc3a5e701c, 18),
     ('blue-blue-on-base', 'base', '$BLUE',0xfd9fa4f785331ce88b5af8994a047ba087c705d8, 18),
     ('bets-all-street-bets', 'base', 'BETS',0x42069de48741db40aef864f8764432bbccbd0b69, 18),
-    ('onchain-onchain-coin', 'base', 'ONCHAIN',0x1c22374032e7e5a1bbde3d943f5deb310db060dd, 18)
-    
+    ('onchain-onchain-coin', 'base', 'ONCHAIN',0x1c22374032e7e5a1bbde3d943f5deb310db060dd, 18),
+    ('godcat-godcatexplodingkittens', 'base', 'GODCAT',0xdb08ca267e824fb29eb455b7e06fe73fb0370895, 18),
+    ('btcbr-bitcoinbr', 'base', 'BTCBR',0x6324065012b16da37aa4086edb49aa9d3754e691, 18),
+    ('skop-skull-of-pepe-token', 'base', 'SKOP',0x6d3b8c76c5396642960243febf736c6be8b60562, 18),
+    ('based8-based', 'base', 'BASED',0x32e0f9d26d1e33625742a52620cc76c1130efde6, 18),
+    ('meta-based-meta', 'base', 'META',0x3efd97aeb3d2451bbec0e4dfebc8b66ebb33f552, 18),
+    ('alf-alf', 'base', 'ALF',0x26f1bb40ea88b46ceb21557dc0ffac7b7c0ad40f, 18), 
+    ('tad1-tadpole', 'base', 'TAD',0x55027a5b06f4340cc4c82dcc74c90ca93dcb173e, 18),
+    ('blue-blue-guy', 'base', 'BLUE',0x891502ba08132653151f822a3a430198f1844115, 18),
+    ('alb-alienbase', 'base', 'ALB',0x1dd2d631c92b1acdfcdd51a0f7145a50130050c4, 18),
+    ('clark-coinbase-mascot','base','CLARK',0x5f7373Fa845692b1dD7bfaE576D6c743482bf26a, 18),
+    ('gyd-gyro-dollar','base','GYD',0xca5d8f8a8d49439357d3cf46ca2e720702f132b8, 18),
+    ('virtual-virtual-protocol', 'base', 'VIRTUAL', 0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b, 18),
+    ('bomb-fbomb', 'base', 'BOMB', 0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979, 18),
+    ('play9-play', 'base', 'PLAY', 0x7404ac09adf614603d9c16a7ce85a1101f3514ba, 18),
+    ('champ-super-champs', 'base', 'CHAMP', 0xeb6d78148f001f3aa2f588997c5e102e489ad341, 18),
+    ('euroc-euro-coin', 'base', 'EURC', 0x60a3e35cc302bfa44cb288bc5a4f316fdb1adb42, 6),
+    ('fai-freysa', 'base', 'FAI', 0xb33ff54b9f7242ef1593d2c9bcd8f9df46c77935, 18),
+    ('ogn-origin-protocol', 'base', 'OGN', 0x7002458b1df59eccb57387bc79ffc7c29e22e6f7, 18),
+    ('usdt-tether', 'base', 'USDT', 0xfde4c96c8593536e31f229ea8f37b2ada2699bb2, 6),
+    ('klima-klimadao', 'base', 'KLIMA', 0xdcefd8c8fcc492630b943abcab3429f12ea9fea2, 9),
+    ('yfi-yearnfinance', 'base', 'YFI', 0x9eaf8c1e34f05a589eda6bafdf391cf6ad3cb239, 18),
+    ('lbtc-lombard-staked-btc', 'base', 'LBTC', 0xecAc9C5F704e954931349Da37F60E39f515c11c1, 8),
+    ('veil2-veil-token', 'base', 'VEIL', 0x767A739D1A152639e9Ea1D8c1BD55FDC5B217D7f, 18),
+    ('vvv-venice-token','base','VVV',0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf,18)
+    --('well-moonwell' ,'base', 'WELL', 0xa88594d404727625a9437c3f886c7643872296ae, 18)
 ) as temp (token_id, blockchain, symbol, contract_address, decimals)

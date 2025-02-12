@@ -9,6 +9,7 @@
 -- (blockchain, project, project_version, model)
 {% set base_models = [
     ref('uniswap_v3_bnb_base_trades')
+    , ref('uniswap_v4_bnb_base_trades')
     , ref('apeswap_bnb_base_trades')
     , ref('airswap_bnb_base_trades')
     , ref('sushiswap_v1_bnb_base_trades')
@@ -37,6 +38,7 @@
     , ref('hashflow_bnb_base_trades')
     , ref('uniswap_v2_bnb_base_trades')
     , ref('swaap_v2_bnb_base_trades')
+    , ref('hyperjump_bnb_base_trades')
 ] %}
 
 

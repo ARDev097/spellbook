@@ -14,6 +14,7 @@
                                             ,"linea"
                                             ,"mantle"
                                             ,"optimism"
+                                            ,"ronin"
                                             ,"polygon"
                                             ,"scroll"
                                             ,"sei"
@@ -23,7 +24,7 @@
                                         ]\',
                                         "sector",
                                         "tokens",
-                                        \'["aalan3", "jeff-dude"]\') }}'
+                                        \'["aalan3", "jeff-dude", "0xBoxer", "hildobby", "0xRob"]\') }}'
         )
 }}
 
@@ -41,8 +42,10 @@
     ,'mantle'
     ,'optimism'
     ,'polygon'
+    ,'ronin'
     ,'scroll'
     ,'sei'
+    ,'tron'
     ,'zkevm'
     ,'zksync'
     ,'zora'
